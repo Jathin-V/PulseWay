@@ -1,0 +1,6 @@
+{
+  "name": "PulseWay",
+  "description": "Hospital Emergency Coordination & Dispatch System with Multilingual AI Triage, Real-Time GPS Ambulance Tracking, and Hospital Command Center.",
+  "requestFramePermissions": ["geolocation"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

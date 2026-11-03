@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PulseWay — Emergency Coordination &amp; Dispatch System</title>
+    <meta name="description" content="Hospital Emergency Coordination &amp; Dispatch System with Multilingual AI Triage, Real-Time GPS Ambulance Tracking, and Hospital Command Center." />
+    <meta property="og:title" content="PulseWay — Emergency Coordination &amp; Dispatch System" />
+    <meta property="og:description" content="Hospital Emergency Coordination &amp; Dispatch System with Multilingual AI Triage, Real-Time GPS Ambulance Tracking, and Hospital Command Center." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <script>
+      (function () {
+        const NativeWebSocket = window.WebSocket;
+        if (!NativeWebSocket) return;
+        function GuardedWebSocket(url, protocols) {
+          const urlStr = String(url || '');
+          const protoStr = Array.isArray(protocols) ? protocols.join(',') : String(protocols || '');
+          if (protoStr.includes('vite-hmr') || protoStr.includes('vite-ping') || urlStr.includes('vite')) {
+            return {
+              url: urlStr,
+              readyState: 1,
+              protocol: protoStr,
+              extensions: '',
+              bufferedAmount: 0,
+              binaryType: 'blob',
+              send: function () {},
+              close: function () {},
+              addEventListener: function () {},
+              removeEventListener: function () {},
+              dispatchEvent: function () { return true; },
+              onopen: null,
+              onmessage: null,
+              onerror: null,
+              onclose: null,
+            };
+          }
+          return protocols !== undefined
+            ? new NativeWebSocket(url, protocols)
+            : new NativeWebSocket(url);
+        }
+        GuardedWebSocket.prototype = NativeWebSocket.prototype;
+        GuardedWebSocket.CONNECTING = NativeWebSocket.CONNECTING;
+        GuardedWebSocket.OPEN = NativeWebSocket.OPEN;
+        GuardedWebSocket.CLOSING = NativeWebSocket.CLOSING;
+        GuardedWebSocket.CLOSED = NativeWebSocket.CLOSED;
+        window.WebSocket = GuardedWebSocket;
+      })();
+    </script>
+  </head>
+  <body class="bg-[#F4F6F9] text-[#0A1120] antialiased selection:bg-emerald-600 selection:text-white">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+
