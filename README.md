@@ -1,0 +1,1 @@
+*PulseWay* is an AI-powered emergency response and road-accident dispatch platform that connects riders with nearby hospitals, ambulances, police, and family in real time through continuous GPS tracking, Gemini AI triage, a 60-second automatic crash-alert countdown, and 1-click hospital resource allocation.
